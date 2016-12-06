@@ -11,16 +11,18 @@
 
 defined('ABSPATH') or die('These aren\'t the droids you\'re looking for...');
 
-class Ditch {
-  /**
+class ditch
+{
+    /**
    * Static property to hold our singleton instance
    */
-  static $instance = false;
+  public static $instance = false;
 
   /**
    * Start up the core functionality of the plugin
    */
-  public function __construct() {
+  public function __construct()
+  {
     // wp_head
     add_action('after_setup_theme', [$this, 'disable_wp_head_functions']);
 
@@ -46,7 +48,8 @@ class Ditch {
   /**
    * If an instance exists, this returns it.  If not, it creates one and retuns it.
    */
-  public static function getInstance() {
+  public static function getInstance()
+  {
     if (!self::$instance instanceof self) {
       self::$instance = new self;
     }
@@ -57,7 +60,8 @@ class Ditch {
   /**
    * Calling all the remove functions for various standard inclusions made by WordPress
    */
-  public function disable_wp_head_functions() {
+  public function disable_wp_head_functions()
+  {
     // General WP stuff
     remove_action('wp_head', 'wp_generator');
     remove_action('wp_head', 'wp_shortlink_wp_head');
@@ -95,7 +99,8 @@ class Ditch {
    * Disabling REST API for users not logged in.
    * WordPress depends too much on the API to disable site-wide.
    */
-  public function disable_rest_api($access) {
+  public function disable_rest_api($access)
+  {
     if (!is_user_logged_in()) {
       return new WP_Error('rest_cannot_access', 'Only authenticated users can access the REST API.', ['status' => rest_authorization_required_code()]);
     }
@@ -106,7 +111,8 @@ class Ditch {
   /**
    * Give Editor role the capability to edit menu's
    */
-  private function change_editor_role_caps() {
+  private function change_editor_role_caps()
+  {
     $role_object = get_role('editor');
     $role_object->add_cap('edit_theme_options');
   }
@@ -115,7 +121,8 @@ class Ditch {
    * Remove the Tools menu item.
    * Remove the Themes submenu item (which was introduced by the new menu edit capability)
    */
-  public function change_main_menu_items() {
+  public function change_main_menu_items()
+  {
     if (!current_user_can('install_themes')) {
       remove_menu_page('tools.php');
       remove_submenu_page('themes.php', 'themes.php');
@@ -125,7 +132,8 @@ class Ditch {
   /**
    * Remove the 'New content' button in the Admin bar
    */
-  public function change_admin_bar_items() {
+  public function change_admin_bar_items()
+  {
     global $wp_admin_bar;
     $wp_admin_bar->remove_node('new-content');
   }
