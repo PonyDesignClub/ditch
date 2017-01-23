@@ -9,6 +9,7 @@ Primarily for [PDC](https://www.ponydesignclub.nl) developed themes.
 ### 'wp_head' hook
 * WordPress generator ([wp_generator](https://developer.wordpress.org/reference/functions/wp_generator/))
 * Shortlink ([wp_shortlink_wp_head](https://developer.wordpress.org/reference/functions/wp_shortlink_wp_head/))
+* Shortlink link header ([wp_shortlink_header](https://developer.wordpress.org/reference/functions/wp_shortlink_header/))
 * Really Simple Discovery ([rsd_link](https://developer.wordpress.org/reference/functions/rsd_link/))
 * Windows Live Writer ([wlwmanifest_link](https://developer.wordpress.org/reference/functions/wlwmanifest_link/))
 * Emoji detection ([print_emoji_detection_script](https://developer.wordpress.org/reference/functions/print_emoji_detection_script/))
