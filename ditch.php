@@ -3,7 +3,7 @@
  * Plugin Name: Ditch
  * Plugin URI: https://gitlab.com/pony-design-club/ditch
  * Description: An opinionated plugin to ditch some standard WordPress functionality
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Daan Vos de Wael
  * Author URI: https://www.ponydesignclub.nl/
  * License: GPL-2.0+
@@ -65,6 +65,7 @@ class ditch
     // General WP stuff
     remove_action('wp_head', 'wp_generator');
     remove_action('wp_head', 'wp_shortlink_wp_head');
+    remove_action('template_redirect', 'wp_shortlink_header', 11);
 
     // Real Simple Discovery & Windows Live Writer
     remove_action('wp_head', 'rsd_link');
