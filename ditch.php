@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Ditch
- * Plugin URI: https://gitlab.com/pony-design-club/ditch
+ * Plugin URI: https://github.com/PonyDesignClub/ditch
  * Description: An opinionated plugin to ditch some standard WordPress functionality
  * Version: 1.0.1
  * Author: Daan Vos de Wael
@@ -13,7 +13,7 @@ defined('ABSPATH') or die('These aren\'t the droids you\'re looking for...');
 
 class ditch
 {
-    /**
+  /**
    * Static property to hold our singleton instance
    */
   public static $instance = false;
